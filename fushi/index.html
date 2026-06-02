@@ -8,13 +8,6 @@
   <link rel="stylesheet" href="../assets/side-decor.css">
 </head>
 <body>
-  <div class="side-decor side-decor-left" aria-hidden="true">
-    <img src="../assets/images/decor-left.png" alt="">
-  </div>
-  <div class="side-decor side-decor-right" aria-hidden="true">
-    <img src="../assets/images/decor-right.png" alt="">
-  </div>
-
   <nav class="back-bar" aria-label="页面导航">
     <a class="back-link" href="../">← 返回首页</a>
   </nav>
@@ -85,7 +78,15 @@
     </footer>
   </div>
 
+  <div class="side-decor side-decor-left" aria-hidden="true">
+    <img data-src="../assets/images/decor-left.png" alt="" decoding="async" fetchpriority="low">
+  </div>
+  <div class="side-decor side-decor-right" aria-hidden="true">
+    <img data-src="../assets/images/decor-right.png" alt="" decoding="async" fetchpriority="low">
+  </div>
+
   <script src="data.js"></script>
   <script src="app.js"></script>
+  <script src="../assets/side-decor.js" defer></script>
 </body>
 </html>

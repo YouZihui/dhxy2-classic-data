@@ -93,9 +93,10 @@ function renderTable() {
     )
     .join("");
 
-  statsCards.innerHTML = rows
-    .map(
-      (row, index) => `
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    statsCards.innerHTML = rows
+      .map(
+        (row, index) => `
       <article class="stat-card">
         <div class="stat-card-header">
           <span class="rank">${index + 1}</span>
@@ -106,8 +107,11 @@ function renderTable() {
         </div>
       </article>
     `
-    )
-    .join("");
+      )
+      .join("");
+  } else {
+    statsCards.innerHTML = "";
+  }
 
   const top = rows[0];
   const sortLabel = COLUMN_LABELS[sortKey];

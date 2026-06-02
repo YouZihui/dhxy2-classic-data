@@ -183,7 +183,6 @@ tbody tr:hover {
 }
 
 .mobile-cards {
-  display: grid;
   gap: 12px;
 }
 
@@ -274,7 +273,7 @@ tbody tr:hover {
     display: none;
   }
 
-  .mobile-only {
+  .mobile-only.mobile-cards {
     display: grid;
   }
 
