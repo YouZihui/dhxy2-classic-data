@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>符石属性 · 大话西游2经典版</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../assets/side-decor.css">
+</head>
+<body>
+  <div class="side-decor side-decor-left" aria-hidden="true">
+    <img src="../assets/images/decor-left.png" alt="">
+  </div>
+  <div class="side-decor side-decor-right" aria-hidden="true">
+    <img src="../assets/images/decor-right.png" alt="">
+  </div>
+
+  <nav class="back-bar" aria-label="页面导航">
+    <a class="back-link" href="../">← 返回首页</a>
+  </nav>
+
+  <div class="page page-with-back-bar">
+    <header class="header">
+      <h1>符石属性</h1>
+      <p class="subtitle">选择等级查看属性，点击表头按该属性排序</p>
+    </header>
+
+    <section class="controls">
+      <label class="control">
+        <span>等级</span>
+        <select id="levelSelect" aria-label="选择等级"></select>
+      </label>
+
+      <label class="control">
+        <span>排序</span>
+        <select id="sortSelect" aria-label="选择排序属性">
+          <option value="name">符石名称</option>
+          <option value="activity">活跃</option>
+          <option value="speed">速度</option>
+          <option value="support">支援</option>
+          <option value="damage">伤害</option>
+          <option value="recovery">回复</option>
+          <option value="drop">落宝</option>
+          <option value="dropResist">抗落宝</option>
+          <option value="negativeAgility">负敏</option>
+        </select>
+      </label>
+
+      <button id="sortOrderBtn" type="button" class="order-btn" aria-label="切换排序方向">
+        降序 ↓
+      </button>
+    </section>
+
+    <div class="desktop-only">
+      <p class="scroll-hint" aria-hidden="true">左右滑动查看全部属性</p>
+      <div class="table-wrap">
+        <table id="statsTable">
+          <thead>
+            <tr>
+              <th data-key="name">符石</th>
+              <th data-key="activity">活跃</th>
+              <th data-key="speed">速度</th>
+              <th data-key="support">支援</th>
+              <th data-key="damage">伤害</th>
+              <th data-key="recovery">回复</th>
+              <th data-key="drop">落宝</th>
+              <th data-key="dropResist">抗落宝</th>
+              <th data-key="negativeAgility">负敏</th>
+            </tr>
+          </thead>
+          <tbody id="statsBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="statsCards" class="mobile-cards mobile-only" aria-label="符石属性列表"></div>
+
+    <footer class="footer">
+      <p id="summaryText"></p>
+      <div class="disclaimer" role="note" aria-label="免责声明">
+        <p>本站由玩家自发整理，与网易公司及《大话西游2经典版》官方无关。</p>
+        <p>数据来源于游戏内实测整理，仅供查阅参考；游戏名称及相关内容的知识产权归网易公司等权利人所有。</p>
+        <p>如有侵权或需更正，请通过本仓库 Issues 联系处理。</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

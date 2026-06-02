@@ -2,6 +2,7 @@ const levelSelect = document.getElementById("levelSelect");
 const sortSelect = document.getElementById("sortSelect");
 const sortOrderBtn = document.getElementById("sortOrderBtn");
 const statsBody = document.getElementById("statsBody");
+const statsCards = document.getElementById("statsCards");
 const summaryText = document.getElementById("summaryText");
 const tableHeaders = document.querySelectorAll("#statsTable th[data-key]");
 
@@ -26,11 +27,11 @@ function formatValue(key, value) {
 }
 
 function getRowsForLevel(level) {
-  return CREATURES.map((creature) => ({
-    id: creature.id,
-    name: creature.name,
-    color: creature.color,
-    ...creature.levels[level],
+  return STONES.map((stone) => ({
+    id: stone.id,
+    name: stone.name,
+    color: stone.color,
+    ...stone.levels[level],
   }));
 }
 
@@ -55,6 +56,17 @@ function updateSortIndicators() {
   sortOrderBtn.textContent = sortDesc ? "降序 ↓" : "升序 ↑";
 }
 
+function renderStatItems(row) {
+  return STAT_KEYS.map(
+    (key) => `
+      <div class="stat-item${key === sortKey ? " is-sorted" : ""}">
+        <span class="stat-label">${COLUMN_LABELS[key]}</span>
+        <span class="stat-value">${formatValue(key, row[key])}</span>
+      </div>
+    `
+  ).join("");
+}
+
 function renderTable() {
   const rows = getRowsForLevel(currentLevel).sort((a, b) =>
     compareRows(a, b, sortKey, sortDesc)
@@ -66,7 +78,7 @@ function renderTable() {
       <tr>
         <td class="name-cell">
           <span class="rank">${index + 1}</span>
-          <span class="creature-name" style="--creature-color: ${row.color}">${row.name}</span>
+          <span class="stone-name" style="--stone-color: ${row.color}">${row.name}</span>
         </td>
         <td>${formatValue("activity", row.activity)}</td>
         <td>${formatValue("speed", row.speed)}</td>
@@ -81,8 +93,27 @@ function renderTable() {
     )
     .join("");
 
+  statsCards.innerHTML = rows
+    .map(
+      (row, index) => `
+      <article class="stat-card">
+        <div class="stat-card-header">
+          <span class="rank">${index + 1}</span>
+          <span class="stone-name" style="--stone-color: ${row.color}">${row.name}</span>
+        </div>
+        <div class="stat-grid">
+          ${renderStatItems(row)}
+        </div>
+      </article>
+    `
+    )
+    .join("");
+
   const top = rows[0];
-  summaryText.textContent = `当前：等级 ${currentLevel} · 按「${COLUMN_LABELS[sortKey]}」${sortDesc ? "降序" : "升序"}排列 · 最高：${top.name}（${formatValue(sortKey, sortKey === "name" ? top.name : top[sortKey])}）`;
+  const sortLabel = COLUMN_LABELS[sortKey];
+  const sortOrder = sortDesc ? "降序" : "升序";
+  const topValue = formatValue(sortKey, sortKey === "name" ? top.name : top[sortKey]);
+  summaryText.textContent = `等级 ${currentLevel} · ${sortLabel} ${sortOrder} · 最高 ${top.name}（${topValue}）`;
   updateSortIndicators();
 }
 

@@ -3,67 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>四神兽 / 麒麟 属性表</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>大话西游2经典版 · 数据查阅</title>
+  <link rel="stylesheet" href="assets/common.css">
+  <link rel="stylesheet" href="assets/side-decor.css">
+  <link rel="stylesheet" href="assets/home.css">
 </head>
 <body>
-  <div class="page">
-    <header class="header">
-      <h1>四神兽 / 麒麟 属性表</h1>
-      <p class="subtitle">选择等级查看属性，点击表头按该属性排序</p>
-    </header>
-
-    <section class="controls">
-      <label class="control">
-        <span>等级</span>
-        <select id="levelSelect" aria-label="选择等级"></select>
-      </label>
-
-      <label class="control">
-        <span>排序</span>
-        <select id="sortSelect" aria-label="选择排序属性">
-          <option value="name">神兽名称</option>
-          <option value="activity">活跃</option>
-          <option value="speed">速度</option>
-          <option value="support">支援</option>
-          <option value="damage">伤害</option>
-          <option value="recovery">回复</option>
-          <option value="drop">落宝</option>
-          <option value="dropResist">抗落宝</option>
-          <option value="negativeAgility">负敏</option>
-        </select>
-      </label>
-
-      <button id="sortOrderBtn" type="button" class="order-btn" aria-label="切换排序方向">
-        降序 ↓
-      </button>
-    </section>
-
-    <div class="table-wrap">
-      <table id="statsTable">
-        <thead>
-          <tr>
-            <th data-key="name">神兽</th>
-            <th data-key="activity">活跃</th>
-            <th data-key="speed">速度</th>
-            <th data-key="support">支援</th>
-            <th data-key="damage">伤害</th>
-            <th data-key="recovery">回复</th>
-            <th data-key="drop">落宝</th>
-            <th data-key="dropResist">抗落宝</th>
-            <th data-key="negativeAgility">负敏</th>
-          </tr>
-        </thead>
-        <tbody id="statsBody"></tbody>
-      </table>
-    </div>
-
-    <footer class="footer">
-      <p id="summaryText"></p>
-    </footer>
+  <div class="side-decor side-decor-left" aria-hidden="true">
+    <img src="assets/images/decor-left.png" alt="">
+  </div>
+  <div class="side-decor side-decor-right" aria-hidden="true">
+    <img src="assets/images/decor-right.png" alt="">
   </div>
 
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <div class="page">
+    <header class="header">
+      <h1>大话西游2经典版 · 数据查阅</h1>
+      <p class="subtitle">整理游戏内常用数据，方便快速查询与对比</p>
+    </header>
+
+    <nav class="catalog" aria-label="数据目录">
+      <a class="catalog-card" href="fushi/">
+        <h2>符石属性</h2>
+        <p>青龙、朱雀、白虎、玄武、麒麟各等级属性，支持按等级查看与属性排序。</p>
+        <span class="catalog-tag">已收录</span>
+      </a>
+    </nav>
+
+    <footer class="site-footer">
+      <p>更多数据模块会持续更新。</p>
+      <div class="disclaimer" role="note" aria-label="免责声明">
+        <p>本站由玩家自发整理，与网易公司及《大话西游2经典版》官方无关。</p>
+        <p>数据来源于游戏内实测整理，仅供查阅参考；游戏名称及相关内容的知识产权归网易公司等权利人所有。</p>
+        <p>如有侵权或需更正，请通过本仓库 Issues 联系处理。</p>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

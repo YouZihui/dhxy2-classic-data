@@ -1,0 +1,61 @@
+/* PC 宽屏两侧装饰，窄屏隐藏 */
+.side-decor {
+  display: none;
+}
+
+@media (min-width: 1320px) {
+  .side-decor {
+    display: flex;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    height: 100dvh;
+    width: calc((100vw - min(1100px, calc(100% - 32px))) / 2 - 12px);
+    max-width: 340px;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .side-decor-left {
+    left: 0;
+    padding-left: max(8px, env(safe-area-inset-left));
+  }
+
+  .side-decor-right {
+    right: 0;
+    padding-right: max(8px, env(safe-area-inset-right));
+  }
+
+  .side-decor img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.92;
+    filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.45));
+  }
+
+  .side-decor-left img {
+    object-position: 75% center;
+    -webkit-mask-image: linear-gradient(to right, #000 50%, transparent);
+    mask-image: linear-gradient(to right, #000 50%, transparent);
+  }
+
+  .side-decor-right img {
+    object-position: 25% center;
+    -webkit-mask-image: linear-gradient(to left, #000 50%, transparent);
+    mask-image: linear-gradient(to left, #000 50%, transparent);
+  }
+
+  .page,
+  .back-bar {
+    position: relative;
+    z-index: 1;
+  }
+
+  .back-bar {
+    z-index: 100;
+  }
+}
