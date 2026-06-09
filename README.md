@@ -58,3 +58,4 @@ npx serve .
 
 - 首页：https://youzihui.github.io/dhxy2-classic-data/
 - 符石属性：https://youzihui.github.io/dhxy2-classic-data/fushi/
+- 孩子养育：https://youzihui.github.io/dhxy2-classic-data/haizi/

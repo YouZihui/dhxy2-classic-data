@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>孩子养育 · 大话西游2经典版</title>
+  <link rel="stylesheet" href="../assets/side-decor.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="back-bar" aria-label="页面导航">
+    <a class="back-link" href="index.html">← 返回目录</a>
+  </nav>
+
+  <div class="page page-with-back-bar">
+    <header class="header stage-header">
+      <h1 id="stageTitle">孩子养育</h1>
+      <p id="stageSubtitle" class="subtitle"></p>
+    </header>
+
+    <nav id="stageNav" class="stage-nav" aria-label="阶段导航"></nav>
+
+    <p id="goalText" class="goal-panel" aria-live="polite"></p>
+
+    <p id="careerEval" class="career-eval" hidden></p>
+    <p id="sourceText" class="source-note"></p>
+
+    <section id="infoPanel" class="info-panel" hidden aria-label="说明"></section>
+
+    <section id="attrsSection" class="attrs-section" aria-label="属性对比" hidden>
+      <div id="startAttrsPanel" class="attrs-panel">
+        <h2 id="startAttrsTitle">进入本岁时属性（攻略截图）</h2>
+        <div id="startAttrs" class="attrs-grid"></div>
+      </div>
+      <div id="endAttrsPanel" class="attrs-panel">
+        <h2 id="endAttrsTitle">离开本岁时属性（攻略截图）</h2>
+        <div id="endAttrs" class="attrs-grid"></div>
+      </div>
+    </section>
+
+    <div id="actionsDetail" hidden>
+      <h2 id="actionsSectionTitle" class="section-title">本岁行为安排</h2>
+
+      <div class="desktop-only actions-detail">
+        <p class="scroll-hint" aria-hidden="true">左右滑动查看全部列</p>
+        <div class="table-wrap">
+          <table id="actionsTable">
+            <thead>
+              <tr>
+                <th>行为</th>
+                <th>类型</th>
+                <th id="countHeader">本岁次数</th>
+                <th>阶段前累计</th>
+                <th>阶段后累计</th>
+                <th>每次属性变化</th>
+                <th>备注</th>
+              </tr>
+            </thead>
+            <tbody id="actionsBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="actionsCards" class="mobile-cards mobile-only actions-detail" aria-label="行为列表"></div>
+    </div>
+
+    <footer class="footer">
+      <p id="summaryText"></p>
+      <p class="data-note">属性取自寒冰攻略截图/原文；带≈为约数。每次操作收益标注（浮动）的会在游戏内波动。</p>
+      <div class="disclaimer" role="note" aria-label="免责声明">
+        <p>本站由玩家自发整理，与网易公司及《大话西游2经典版》官方无关。</p>
+        <p>数据来源于游戏内实测整理，仅供查阅参考；游戏名称及相关内容的知识产权归网易公司等权利人所有。</p>
+        <p>如有侵权或需更正，请通过本仓库 Issues 联系处理。</p>
+      </div>
+    </footer>
+  </div>
+
+  <div class="side-decor side-decor-left" aria-hidden="true">
+    <img data-src="../assets/images/decor-left.png" alt="" decoding="async" fetchpriority="low">
+  </div>
+  <div class="side-decor side-decor-right" aria-hidden="true">
+    <img data-src="../assets/images/decor-right.png" alt="" decoding="async" fetchpriority="low">
+  </div>
+
+  <script src="data.js"></script>
+  <script src="stage.js"></script>
+  <script src="../assets/side-decor.js" defer></script>
+</body>
+</html>

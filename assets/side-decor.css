@@ -49,13 +49,8 @@
     mask-image: linear-gradient(to left, #000 50%, transparent);
   }
 
-  .page,
-  .back-bar {
+  .page {
     position: relative;
     z-index: 1;
-  }
-
-  .back-bar {
-    z-index: 100;
   }
 }
