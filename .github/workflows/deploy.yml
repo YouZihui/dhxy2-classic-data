@@ -14,4 +14,4 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: /opt/src/dhxy2-classic-data/deploy.sh
+          script: /opt/deploy/xy2/deploy.sh
