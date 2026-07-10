@@ -15,6 +15,7 @@
 | 模块 | 路径 | 说明 |
 | --- | --- | --- |
 | 符石属性 | [`fushi/`](https://github.com/YouZihui/dhxy2-classic-data/tree/main/fushi) | 青龙、朱雀、白虎、玄武、麒麟各等级属性，支持按等级查看与属性排序 |
+| 孩子养育 | [`haizi/`](https://github.com/YouZihui/dhxy2-classic-data/tree/main/haizi) | 神结局 5010 路线，按年龄查看属性变化、行为次数与每次收益 |
 
 ## 目录结构
 
@@ -59,3 +60,28 @@ npx serve .
 - 首页：https://youzihui.github.io/dhxy2-classic-data/
 - 符石属性：https://youzihui.github.io/dhxy2-classic-data/fushi/
 - 孩子养育：https://youzihui.github.io/dhxy2-classic-data/haizi/
+
+## 自动部署
+
+本站为纯静态 HTML（`index.html`、`assets/`、`fushi/`、`haizi/` 等），**无需 npm 构建**。
+
+`git push` 到 `main` 后，GitHub Actions 会通过 SSH 触发服务器上的部署脚本（见 [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)）。
+
+### GitHub Secrets（Settings → Secrets and variables → Actions）
+
+部署凭据由运维在仓库 Secrets 中配置，**勿写入代码**：
+
+| Secret | 说明 |
+| --- | --- |
+| `SSH_HOST` | 服务器 IP |
+| `SSH_USER` | SSH 登录用户名 |
+| `SSH_PRIVATE_KEY` | 部署专用 SSH 私钥全文 |
+
+服务器初始化与 `deploy.sh` 脚本由运维在服务器侧维护；Actions 失败时可 SSH 登录手动执行部署脚本排错。
+
+### 日常更新
+
+1. 修改 HTML / JS / CSS
+2. `git push origin main`
+3. 在仓库 **Actions** 页确认 workflow 成功
+4. 访问线上站点验证
